@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Estoque.DAO
 {
-    public class ProdutosDAO
+    public class ProdutoDAO
     {
         public void Adiciona (Produto produto)
         {
@@ -21,14 +21,14 @@ namespace Estoque.DAO
         {
             using (var contexto = new EstoqueContext())
             {
-                return contexto.Produtos.Include("Produto").ToList();
+                return contexto.Produtos.Include("Categoria").ToList();
             }
         }
         public Produto BuscaPorId(int id)
         {
             using (var contexto = new EstoqueContext())
             {
-                return contexto.Produtos.Include("Produto")
+                return contexto.Produtos.Include("Categoria")
                     .Where(p => p.Id == id)
                     .FirstOrDefault();
             }
