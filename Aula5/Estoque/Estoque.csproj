@@ -95,11 +95,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\BancoProdutos.mdf" />
-    <Content Include="App_Data\BancoProdutos_log.ldf">
-      <DependentUpon>BancoProdutos.mdf</DependentUpon>
+    <Content Include="App_Data\Estoque.mdf" />
+    <Content Include="App_Data\Estoque_log.ldf">
+      <DependentUpon>Estoque.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Scripts\ScriptDoBanco.sql" />
+    <Content Include="Scripts\ScriptdoBanco2.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -133,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
-    <Folder Include="Scripts\" />
     <Folder Include="Views\Categoria\" />
   </ItemGroup>
   <PropertyGroup>

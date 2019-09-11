@@ -14,7 +14,7 @@ namespace Estoque.Controllers
         public ActionResult Index()
         {
             ProdutoDAO dao = new ProdutoDAO();
-            dao.Adiciona(new Produto { Nome = "SASA", Categoria = new CategoriaDoProduto { Nome = "ao", Descricao = "Disabou", Id = 2 }, CategoriaId = 2, Id = 2, Descricao = "O melhor", Preco = 2134.23F, Quantidade = 32 });
+           // dao.Adiciona(new Produto { Nome = "SASA", Categoria = new CategoriaDoProduto { Nome = "ao", Descricao = "Disabou", Id = 2 }, CategoriaId = 2, Id = 2, Descricao = "O melhor", Preco = 2134.23F, Quantidade = 32 });
             IList<Produto> produtos = dao.Lista();
 
             ViewBag.Produtos = produtos;
