@@ -1,11 +1,11 @@
 ﻿Nome do Banco Estoque
 
-CREATE TABLE [dbo].[CategoriaDoProdutoes]
+CREATE TABLE [dbo].[CategoriaDoProduto]
 (
 	[Id] INT IDENTITY (1,1) NOT NULL,
 	[Nome] NVARCHAR (MAX) NULL, 
     [Descricao] NVARCHAR(MAX) NULL,
-	CONSTRAINT [PK_dbo.CategoriaDoProdutoes] PRIMARY KEY CLUSTERED ([Id] ASC)
+	CONSTRAINT [PK_dbo.CategoriaDoProduto] PRIMARY KEY CLUSTERED ([Id] ASC)
 
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE [dbo].[Produtoes]
     [Descricao] NVARCHAR(MAX) NULL,
 	[Quantidade] INT NULL,
 	CONSTRAINT [PK_dbo.Produtoes] PRIMARY KEY CLUSTERED ([Id] ASC),
-	CONSTRAINT [FK_dbo.Produtos_dbo.CategoriaDoProdutoes_CategoriaId] FOREIGN KEY ([CategoriaId]) REFERENCES [dbo].[CategoriaDoProdutoes] ([Id])
+	CONSTRAINT [FK_dbo.Produtos_dbo.CategoriaDoProduto_CategoriaId] FOREIGN KEY ([CategoriaId]) REFERENCES [dbo].[CategoriaDoProduto] ([Id])
 
 );
 GO
@@ -38,7 +38,7 @@ CREATE TABLE [dbo].[Usuarioes]
 
 );
 
-INSERT INTO dbo.CategoriaDoProdutoes
+INSERT INTO dbo.CategoriaDoProduto
 (
     Nome,
     Descricao

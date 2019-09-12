@@ -21,14 +21,14 @@ namespace Estoque.DAO
         {
             using (var contexto = new EstoqueContext())
             {
-                return contexto.Categorias.Include("Categoria").ToList();
+                return contexto.Categorias.ToList();
             }
         }
         public CategoriaDoProduto BuscaPorId(int id)
         {
             using (var contexto = new EstoqueContext())
             {
-                return contexto.Categorias.Include("Categoria")
+                return contexto.Categorias
                     .Where(p => p.Id == id)
                     .FirstOrDefault();
             }

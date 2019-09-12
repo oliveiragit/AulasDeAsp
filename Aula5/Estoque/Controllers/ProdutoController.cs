@@ -20,5 +20,34 @@ namespace Estoque.Controllers
             ViewBag.Produtos = produtos;
             return View();
         }
+        public ActionResult Form()
+        {
+            CategoriaDAO dao = new CategoriaDAO();
+            IList<CategoriaDoProduto> categorias = dao.Lista();
+            ViewBag.Categorias = categorias;
+            return View();
+        }
+
+        //  [HttpPostAttribute] //Forma completa
+        //Forma permitida, por convenção todos os metodos que possuem attribute pode ser encurtados
+        // public ActionResult Adiciona(string nome, float preco, int quantidade, string descricao, int categoriaId) // Para GET
+        [HttpPost]
+        public ActionResult Adiciona (Produto produto)
+        {
+           /* Produto produto = new Produto()
+            {
+                Nome = nome,
+                Preco = preco,
+                Quantidade = quantidade,
+                Descricao = descricao,
+                CategoriaId = categoriaId
+            };*/
+
+            ProdutoDAO dao = new ProdutoDAO();
+            dao.Adiciona(produto);
+
+            return RedirectToAction("Index");
+        }
+            
     }
 }
