@@ -22,10 +22,11 @@ namespace Estoque.Controllers
         }
         public ActionResult Form()
         {
+            ViewBag.Produto = new Produto();
             CategoriaDAO dao = new CategoriaDAO();
             IList<CategoriaDoProduto> categorias = dao.Lista();
             ViewBag.Categorias = categorias;
-            return View();
+            return View(categorias);
         }
 
         //  [HttpPostAttribute] //Forma completa
@@ -34,19 +35,35 @@ namespace Estoque.Controllers
         [HttpPost]
         public ActionResult Adiciona (Produto produto)
         {
-           /* Produto produto = new Produto()
+            /* Produto produto = new Produto()
+             {
+                 Nome = nome,
+                 Preco = preco,
+                 Quantidade = quantidade,
+                 Descricao = descricao,
+                 CategoriaId = categoriaId
+             };*/
+           
+                int IdInformática = 2;
+            if(produto.CategoriaId.Equals(IdInformática)&& produto.Preco < 100)
             {
-                Nome = nome,
-                Preco = preco,
-                Quantidade = quantidade,
-                Descricao = descricao,
-                CategoriaId = categoriaId
-            };*/
+                ModelState.AddModelError("produto.informaticaComPrecoInvalido", "Categoria informática deve ter preço maior que 100");
+            }
 
-            ProdutoDAO dao = new ProdutoDAO();
-            dao.Adiciona(produto);
-
-            return RedirectToAction("Index");
+            //if (produto.Preco > 0 && produto.Preco < 5000 && produto.Quantidade > 0 && !String.IsNullOrEmpty(produto.Descricao)) //validação na Controler
+            if (ModelState.IsValid) //validação na Model. É necessário utilizar Migration do Nuget se o banco foi criado com Entity FrameWork
+            {
+                ProdutoDAO dao = new ProdutoDAO();
+                dao.Adiciona(produto);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                CategoriaDAO catDAO = new CategoriaDAO();
+                ViewBag.Categorias = catDAO.Lista();
+                return RedirectToAction("Form");
+            }
+            
         }
             
     }

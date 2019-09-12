@@ -116,6 +116,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909122116386_InitialCreate.cs" />
+    <Compile Include="Migrations\201909122116386_InitialCreate.Designer.cs">
+      <DependentUpon>201909122116386_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoriaDoProduto.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -137,6 +142,11 @@
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Views\Categoria\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909122116386_InitialCreate.resx">
+      <DependentUpon>201909122116386_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

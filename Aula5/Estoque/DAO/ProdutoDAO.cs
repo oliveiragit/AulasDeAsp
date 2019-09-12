@@ -12,9 +12,8 @@ namespace Estoque.DAO
         {
             using (var context = new EstoqueContext())
             {
-                context.Produtos.Add(produto);
-                context.SaveChanges();
-
+                    context.Produtos.Add(produto);
+                    context.SaveChanges();
             }
         }
         public IList<Produto> Lista()
