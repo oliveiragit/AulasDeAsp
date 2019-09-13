@@ -59,9 +59,10 @@ namespace Estoque.Controllers
             }
             else
             {
+                ViewBag.Produto = produto;
                 CategoriaDAO catDAO = new CategoriaDAO();
                 ViewBag.Categorias = catDAO.Lista();
-                return RedirectToAction("Form");
+                return View("Form");
             }
             
         }
