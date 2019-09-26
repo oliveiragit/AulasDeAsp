@@ -13,14 +13,16 @@
     <meta name="viewport" content="width=device-width" />
     <title>Lista de Produtos</title>
 </head>
-<body>
+<body> 
     <h2>Lista de Container</h2>
-    <table>
+    <br/>
+    <table cellspacing="20">
         <thead>
             <tr>
                 <th >Número</th>
-                <th colspan="2">Tipo</th>
-                <th >Tamanho</th>
+                <th rowspan="20">Tipo</th>
+                <th rowspan="20" >Tamanho</th>
+                <th rowspan="20">BL</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +30,9 @@
             {
                 <tr>
                     <td align="center">@container.Numero</td>
-                    <td colspan="2" align="center">@container.Tipo</td>
-                    <td align="center">@container.Tamanho</td>
+                    <td  align="center">@container.Tipo</td>
+                    <td  align="center">@container.Tamanho</td>
+                    <a href="BL"><td align="center">@container.BLId.Id</td></a>
                 </tr>
             }
         </tbody>
