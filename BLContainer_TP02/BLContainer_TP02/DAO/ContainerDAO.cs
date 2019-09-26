@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BLContainer_TP02.DAO
-{
+namespace  BLContainer_TP02.DAO
+    {
     public class ContainerDAO
     {
         public void Adiciona(Container container)
@@ -20,15 +20,15 @@ namespace BLContainer_TP02.DAO
         {
             using (var contexto = new TerminalContext())
             {
-                return contexto.Containers.ToList();
+                return contexto.Containers.Include("BL").ToList();
             }
         }
-        public Container BuscaPorId(string numero)
+        public Container BuscaPorId(int id)
         {
             using (var contexto = new TerminalContext())
             {
-                return contexto.Containers
-                    .Where(p => p.Numero == numero)
+                return contexto.Containers.Include("BL")
+                    .Where(c => c.Id == id)
                     .FirstOrDefault();
             }
         }

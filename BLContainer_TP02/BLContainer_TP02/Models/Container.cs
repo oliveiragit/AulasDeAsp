@@ -12,5 +12,6 @@ namespace BLContainer_TP02.Models
         public string Numero { get; set;}
         public string Tipo { get; set; }
         public int Tamanho { get; set; }
+        public BL BLId { get; set; }
     }
 }

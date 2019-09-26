@@ -24,7 +24,7 @@ namespace BLBL_TP02.DAO
                 return contexto.BLs.ToList();
             }
         }
-        public BL BuscaPorId(int id)
+        public BL BuscaPorId(string id)
         {
             using (var contexto = new TerminalContext())
             {
