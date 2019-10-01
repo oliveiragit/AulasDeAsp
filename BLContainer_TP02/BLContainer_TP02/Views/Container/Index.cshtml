@@ -15,20 +15,26 @@
 </head>
 <body> 
     <h2>Lista de Container</h2>
+    <button class="btn-default" >Novo</button>
+
+    <button class="btn-danger">D</button>
+    <button  class="btn-toolbar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
     <br/>
-    <table cellspacing="20">
+    <table class="table table-responsive">
         <thead>
             <tr>
-                <th >Número</th>
-                <th rowspan="20">Tipo</th>
-                <th rowspan="20" >Tamanho</th>
-                <th rowspan="20">BL</th>
+                <th>Editar/Apagar</th>
+                <th align="center">Número</th>
+                <th align="center">Tipo</th>
+                <th align="center">Tamanho</th>
+                <th align="center">BL</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var container in ViewBag.Containers)
             {
                 <tr>
+                    <td><button class="btn-danger">D</button><button class="btn-warning">W</button></td>
                     <td align="center">@container.Numero</td>
                     <td  align="center">@container.Tipo</td>
                     <td  align="center">@container.Tamanho</td>
