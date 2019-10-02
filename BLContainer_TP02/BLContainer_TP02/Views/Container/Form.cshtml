@@ -3,5 +3,40 @@
     ViewBag.Title = "Form";
 }
 
-<h2>Form</h2>
+<h2>Novo container</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form action="/Container/Adiciona" method="post">
+       
+
+        <label for="numero"> Número: </label>
+        <input id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" />
+
+        <label for="tipo"> Tipo: </label>
+        <input id="tipo" name="Container.Tipo" value="@ViewBag.Container.Tipo" />
+
+        <label for="tamanho"> Tamanho: </label>
+        <input id="tamanho" name="Container.Tamanho" value="@ViewBag.Container.Tamanho" />
+
+        <label for="BL"> BL: </label>
+        <select id="BL" name="Container.BLId">
+
+            @foreach (var bl in ViewBag.BLs)
+            {
+
+                <option value="@bl.Id" selected="(@bl.Id.Equals(ViewBag.Container.BLId)">@bl.Id</option>
+            }
+        </select>
+        <input type="submit" />
+    </form>
+</body>
+</html>
+
+
 

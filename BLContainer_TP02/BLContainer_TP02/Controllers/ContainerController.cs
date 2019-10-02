@@ -1,4 +1,5 @@
-﻿using BLContainer_TP02.DAO;
+﻿using BLBL_TP02.DAO;
+using BLContainer_TP02.DAO;
 using BLContainer_TP02.Models;
 using System;
 using System.Collections.Generic;
@@ -22,14 +23,18 @@ namespace BLContainer_TP02.Controllers
         public ActionResult Form()
         {
             ViewBag.Container = new Container();
-            return View();
+            BLDAO dao = new BLDAO();
+            IList<BL> BLs = dao.Lista();
+            ViewBag.BLs = BLs;
+            return View(BLs);
         }
 
-      
         [HttpPost]
-        public ActionResult Adiciona(Container container)
+        public ActionResult Adiciona(Container Container)
         {
-            return View();
+            ContainerDAO dao = new ContainerDAO();
+            dao.Adiciona(Container);
+            return RedirectToAction("Index");
         }
-}
+    }
 }
