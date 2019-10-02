@@ -12,8 +12,7 @@
 </head>
 <body> 
     <h2>Lista de Container</h2>
-    <input type="submit" class="btn-default" onclick="redirecionar"value="Novo"/>
-    <a class="btn btn-primary" href="@Url.Action("Form", "ContainerController")">
+    <a class="btn btn-primary" href="@Url.Action("Form", "Container")">
         Novo
     </a>
     <br/>
@@ -41,7 +40,8 @@
                     <td><a href="BL/${container.BLid.Id}">@container.BLId.Id</a></td>
                     <td><button class="btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
                 </tr>
-            }
+            }   .
+
         </tbody>
     </table>
 </body>

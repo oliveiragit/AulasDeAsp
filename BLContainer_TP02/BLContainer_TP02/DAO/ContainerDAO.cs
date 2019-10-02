@@ -20,14 +20,14 @@ namespace  BLContainer_TP02.DAO
         {
             using (var contexto = new TerminalContext())
             {
-                return contexto.Containers.Include("BLId").ToList();
+                return contexto.Containers.Include("BL").ToList();
             }
         }
         public Container BuscaPorId(int id)
         {
             using (var contexto = new TerminalContext())
             {
-                return contexto.Containers.Include("BLId")
+                return contexto.Containers.Include("BL")
                     .Where(c => c.Id == id)
                     .FirstOrDefault();
             }
