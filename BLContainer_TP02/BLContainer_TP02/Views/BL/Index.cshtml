@@ -8,34 +8,32 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Lista de Containers</title>
+    <title>Lista de BLs</title>
 </head>
-<body> 
-    <h2>Lista de Container</h2>
-    <button class="btn-default" >Novo</button>
-    <br/>
+<body>
+    <h2>Lista de BLs</h2>
+    <button class="btn-default">Novo</button>
+    <br />
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>EDITAR</th>
                 <th>NÚMERO</th>
-                <th>TIPO</th>
-                <th>TAMANHO</th>
-                <th>BL</th>
+                <th>CONSIGNEE</th>
+                <th>NAVIO</th>
                 <th>APAGAR</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var container in ViewBag.Containers)
+            @foreach (var bl in ViewBag.BLs)
             {
                 <tr>
                     <td>
                         <button class="btn-default"><span class="glyphicon glyphicon-edit"></span></button>
                     </td>
-                    <td >@container.Numero</td>
-                    <td >@container.Tipo</td>
-                    <td >@container.Tamanho</td>
-                    <td align="center"><a href="BL/${container.BLid.Id}">@container.BLId.Id</a></td>
+                    <td>@bl.Id</td>
+                    <td>@bl.Consignee</td>
+                    <td>@bl.Navio</td>
                     <td><button class="btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
                 </tr>
             }
