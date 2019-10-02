@@ -12,7 +12,10 @@
 </head>
 <body> 
     <h2>Lista de Container</h2>
-    <button class="btn-default" >Novo</button>
+    <input type="submit" class="btn-default" onclick="redirecionar"value="Novo"/>
+    <a class="btn btn-primary" href="@Url.Action("Form", "ContainerController")">
+        Novo
+    </a>
     <br/>
     <table class="table table-striped">
         <thead>
