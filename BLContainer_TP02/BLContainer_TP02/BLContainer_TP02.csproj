@@ -146,6 +146,7 @@
     <Content Include="Views\BL\Index.cshtml" />
     <Content Include="Views\Container\Form.cshtml" />
     <Content Include="Views\BL\Form.cshtml" />
+    <Content Include="Views\Container\BLContainer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,67 @@
+﻿
+@model IList<BLContainer_TP02.Models.BL>;
+@{
+    ViewBag.Title = "BLContainer";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lista de BLs</title>
+</head>
+<body>
+    <h2>Lista de BLs</h2>
+    <a class="btn btn-primary" href="@Url.Action("Form", "BL")">
+        Novo
+    </a>        <br />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>EDITAR</th>
+                <th>NÚMERO</th>
+                <th>CONSIGNEE</th>
+                <th>NAVIO</th>
+                <th>APAGAR</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bl in ViewBag.BLs)
+            {
+                <tr>
+                    <td>
+                        <a class="btn-default"><span class="glyphicon glyphicon-edit"></span></a>
+                    </td>
+                    <td>@bl.Numero</td>
+                    <td>@bl.Consignee</td>
+                    <td>@bl.Navio</td>
+                    <td><a class="btn-danger"><span class="glyphicon glyphicon-remove"></span></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Link with href
+        </a>
+    </p>
+    <div class="collapse" id="Containers">
+        <div class="card card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

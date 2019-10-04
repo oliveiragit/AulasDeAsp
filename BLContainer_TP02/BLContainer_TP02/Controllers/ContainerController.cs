@@ -25,7 +25,6 @@ namespace BLContainer_TP02.Controllers
             ViewBag.Container = new Container();
             BLDAO dao = new BLDAO();
             IList<BL> BLs = dao.Lista();
-            ViewBag.BLs = BLs;
             return View(BLs);
         }
 
@@ -35,6 +34,13 @@ namespace BLContainer_TP02.Controllers
             ContainerDAO dao = new ContainerDAO();
             dao.Adiciona(Container);
             return RedirectToAction("Index");
+        }
+        [Route("bls/{id}")]
+        public ActionResult BLContainer(int id)
+        {
+            BLDAO bldao = new BLDAO();
+
+            return View(bldao.BuscaPorId(id));
         }
     }
 }

@@ -35,5 +35,6 @@ namespace BLBL_TP02.Controllers
             dao.Adiciona(BL);
             return RedirectToAction("Index");
         }
+       
     }
 }
