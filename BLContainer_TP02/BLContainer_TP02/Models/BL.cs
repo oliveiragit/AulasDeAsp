@@ -7,7 +7,8 @@ namespace BLContainer_TP02.Models
 {
     public class BL
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
+        public string Numero { get; set; }
         public string Consignee { get; set; }
         public string Navio { get; set; }
     }

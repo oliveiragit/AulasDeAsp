@@ -13,7 +13,7 @@
 </head>
 <body>
     <form action="/Container/Adiciona" method="post">
-       
+
 
         <label for="numero"> Número: </label>
         <input id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" />
@@ -30,13 +30,10 @@
             @foreach (var bl in ViewBag.BLs)
             {
 
-                <option value="@bl.Id" selected="(@bl.Id.Equals(ViewBag.Container.BLId)">@bl.Id</option>
+                <option value="@bl.Id" selected="(@bl.Id.Equals(ViewBag.Container.BLId)">@bl.Numero</option>
             }
         </select>
         <input type="submit" />
     </form>
 </body>
 </html>
-
-
-

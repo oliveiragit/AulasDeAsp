@@ -12,33 +12,34 @@
 </head>
 <body>
     <h2>Lista de BLs</h2>
-    <button class="btn-default">Novo</button>
-    <br />
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>EDITAR</th>
-                <th>NÚMERO</th>
-                <th>CONSIGNEE</th>
-                <th>NAVIO</th>
-                <th>APAGAR</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var bl in ViewBag.BLs)
-            {
+    <a class="btn btn-primary" href="@Url.Action("Form", "BL")">
+        Novo
+    </a>        <br />
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>
-                        <button class="btn-default"><span class="glyphicon glyphicon-edit"></span></button>
-                    </td>
-                    <td>@bl.Id</td>
-                    <td>@bl.Consignee</td>
-                    <td>@bl.Navio</td>
-                    <td><button class="btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    <th>EDITAR</th>
+                    <th>NÚMERO</th>
+                    <th>CONSIGNEE</th>
+                    <th>NAVIO</th>
+                    <th>APAGAR</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var bl in ViewBag.BLs)
+                {
+                    <tr>
+                        <td>
+                            <button class="btn-default"><span class="glyphicon glyphicon-edit"></span></button>
+                        </td>
+                        <td>@bl.Id</td>
+                        <td>@bl.Consignee</td>
+                        <td>@bl.Navio</td>
+                        <td><button class="btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 </body>
 </html>
 

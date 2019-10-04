@@ -22,13 +22,18 @@ namespace BLBL_TP02.Controllers
         public ActionResult Form()
         {
             ViewBag.BL = new BL();
-            return View();
+            BLDAO dao = new BLDAO();
+            IList<BL> BLs = dao.Lista();
+            ViewBag.BLs = BLs;
+            return View(BLs);
         }
 
         [HttpPost]
         public ActionResult Adiciona(BL BL)
         {
-            return View();
+            BLDAO dao = new BLDAO();
+            dao.Adiciona(BL);
+            return RedirectToAction("Index");
         }
     }
 }

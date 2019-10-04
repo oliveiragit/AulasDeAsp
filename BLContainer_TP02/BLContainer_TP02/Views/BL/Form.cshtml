@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+}
+
+<h2>Form</h2>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <h2>Novo BL</h2>
+
+    <form action="/BL/Adiciona" method="post">
+
+
+        <label for="numero"> Número: </label>
+        <input id="numero" name="BL.Numero" value="@ViewBag.BL.Numero" />
+
+        <label for="consignee"> Consignee: </label>
+        <input id="consignee" name="BL.Consignee" value="@ViewBag.BL.Consignee" />
+
+        <label for="navio"> Navio: </label>
+        <input id="navio" name="BL.Navio" value="@ViewBag.BL.Navio" />
+
+        <input type="submit" />
+    </form>
+</body>
+</html>
+
+
+
+
+
+
