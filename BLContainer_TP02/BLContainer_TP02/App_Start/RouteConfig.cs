@@ -18,6 +18,7 @@ namespace BLContainer_TP02
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapMvcAttributeRoutes();
         }
     }
 }

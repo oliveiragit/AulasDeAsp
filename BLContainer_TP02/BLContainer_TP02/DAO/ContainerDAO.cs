@@ -40,5 +40,12 @@ namespace  BLContainer_TP02.DAO
                 contexto.SaveChanges();
             }
         }
+        public void Apagar (int id)
+        {
+            using (var contexto = new TerminalContext())
+            {
+                contexto.Containers.Remove(new Container { Id = id });
+            }
+        }
     }
 }

@@ -26,14 +26,10 @@
 
         <label for="BL"> BL: </label>
         <select id="BL" name="Container.BLId">
-            @if (ViewBag.BLs != null)
-            {
-                foreach (var bl in ViewBag.BLs)
+               @foreach (var bl in ViewBag.BLs)
                 {
                     <option value="@bl.Id" selected="(@bl.Id.Equals(ViewBag.Container.BLId)">@bl.Numero</option>
                 }
-            }
-          
         </select>
         <input type="submit" />
     </form>

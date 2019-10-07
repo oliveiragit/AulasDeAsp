@@ -16,16 +16,15 @@ namespace BLContainer_TP02.Controllers
         {
             ContainerDAO dao = new ContainerDAO();
             IList<Container> containers = dao.Lista();
+            return View(containers);
 
-            ViewBag.Containers = containers;
-            return View();
         }
         public ActionResult Form()
         {
+            BLDAO blDAO = new BLDAO();
+            ViewBag.BLs = blDAO.Lista();
             ViewBag.Container = new Container();
-            BLDAO dao = new BLDAO();
-            IList<BL> BLs = dao.Lista();
-            return View(BLs);
+            return View();
         }
 
         [HttpPost]
@@ -42,6 +41,13 @@ namespace BLContainer_TP02.Controllers
 
             return View(bldao.BuscaPorId(id));
         }
-        public ActionResult Apagar 
+
+        [Route("Apagar/{id}", Name="ApagarContainer")]
+        public ActionResult Apagar(int id)
+        {
+            ContainerDAO dao = new ContainerDAO();
+            dao.Apagar(id);
+            return RedirectToAction("Index");
+        }
     }
 }
