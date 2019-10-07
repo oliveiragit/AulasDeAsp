@@ -12,6 +12,7 @@ namespace BLContainer_TP02.Controllers
     public class ContainerController : Controller
     {
         // GET: Container
+        [Route("Lista", Name ="Container")]
         public ActionResult Index()
         {
             ContainerDAO dao = new ContainerDAO();
@@ -42,7 +43,7 @@ namespace BLContainer_TP02.Controllers
             return View(bldao.BuscaPorId(id));
         }
 
-        [Route("Apagar/{id}", Name="ApagarContainer")]
+        [Route("Apagar/{id}", Name ="ApagarContainer")]
         public ActionResult Apagar(int id)
         {
             ContainerDAO dao = new ContainerDAO();

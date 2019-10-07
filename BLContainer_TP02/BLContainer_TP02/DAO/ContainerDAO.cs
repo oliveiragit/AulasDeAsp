@@ -44,7 +44,9 @@ namespace  BLContainer_TP02.DAO
         {
             using (var contexto = new TerminalContext())
             {
-                contexto.Containers.Remove(new Container { Id = id });
+                var container = contexto.Containers.Include("BL").Single(c => c.Id == id);
+                contexto.Containers.Remove(container);
+                contexto.SaveChanges();
             }
         }
     }

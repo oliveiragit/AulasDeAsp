@@ -41,5 +41,14 @@ namespace BLBL_TP02.DAO
                 contexto.SaveChanges();
             }
         }
+        public void Apagar(int id)
+        {
+            using (var contexto = new TerminalContext())
+            {
+                var bl = contexto.BLs.Single(b => b.Id == id);
+                contexto.BLs.Remove(bl);
+                contexto.SaveChanges();
+            }
+        }
     }
 }
