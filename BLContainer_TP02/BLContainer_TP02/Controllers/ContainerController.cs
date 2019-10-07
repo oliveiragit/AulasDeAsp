@@ -42,5 +42,6 @@ namespace BLContainer_TP02.Controllers
 
             return View(bldao.BuscaPorId(id));
         }
+        public ActionResult Apagar 
     }
 }

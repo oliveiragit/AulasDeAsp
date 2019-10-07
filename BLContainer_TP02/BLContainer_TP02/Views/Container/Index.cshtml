@@ -29,21 +29,23 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var container in Model)
+            @if (Model != null)
             {
-                <tr>
-                    <td>
-                        <a class="btn-default"><span class="glyphicon glyphicon-edit"></span></a>
-                    </td>
-                    <td >@container.Numero</td>
-                    <td >@container.Tipo</td>
-                    <td >@container.Tamanho</td>
-                    <td>@Html.ActionLink(container.Bl.Numero, "BLContainer",new { id = container.Bl.Id })</td>
-                    <td><a href="@Url.Action()" class="btn-danger"><span class="glyphicon glyphicon-remove"></span></a></td>
-                </tr>
-            }   .
-
-        </tbody>
+                foreach (var container in Model)
+                {
+                    <tr>
+                        <td>
+                            <a class="btn-default"><span class="glyphicon glyphicon-edit"></span></a>
+                        </td>
+                        <td>@container.Numero</td>
+                        <td>@container.Tipo</td>
+                        <td>@container.Tamanho</td>
+                        <td>@Html.ActionLink(container.Bl.Numero, "BLContainer", new { id = container.Bl.Id })</td>
+                        <td><a href="@Url.Action(container.Id.ToString(), "ApagarContainer", new { id = container.Id})" class="btn-danger"><span class="glyphicon glyphicon-remove"></span></a></td>
+                    </tr>
+                } 
+            }
+                    </tbody>
     </table>
 </body>
 </html>
