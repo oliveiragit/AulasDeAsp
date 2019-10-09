@@ -36,7 +36,7 @@
                     <td>@container.Numero</td>
                     <td>@container.Tipo</td>
                     <td>@container.Tamanho</td>
-                    <td>@Html.RouteLink(container.Bl.Numero, "BLContainer", new { id = container.Bl.Id })</td>
+                    <td>@Html.RouteLink($"{container.Bl.Numero}", "BLeContainer", new { id = container.Bl.Id, numero = container.Bl.Numero }, new { @class = "BL" })</td>
                     <td>@Html.RouteLink(" ", "ApagarContainer", new{id = container.Id, numero = container.Numero}, new { @class = "btn-danger glyphicon glyphicon-remove" })</td>
                 </tr>
                 } 

@@ -1,4 +1,5 @@
 ﻿using BLBL_TP02.DAO;
+using BLContainer_TP02.DAO;
 using BLContainer_TP02.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,6 @@ namespace BLBL_TP02.Controllers
 {
     public class BLController : Controller
     {
-        // GET: BL
         public ActionResult Index()
         {
             BLDAO dao = new BLDAO();
@@ -22,10 +22,7 @@ namespace BLBL_TP02.Controllers
         public ActionResult Form()
         {
             ViewBag.BL = new BL();
-            BLDAO dao = new BLDAO();
-            IList<BL> BLs = dao.Lista();
-            ViewBag.BLs = BLs;
-            return View(BLs);
+            return View();
         }
 
         [HttpPost]
@@ -35,12 +32,8 @@ namespace BLBL_TP02.Controllers
             dao.Adiciona(BL);
             return RedirectToAction("Index");
         }
-        [Route("BL/{Numero}", Name = ("BLContainer"))]
-        public ActionResult BLContainer(int id)
-        {
-            BLDAO bldao = new BLDAO();
-            return View(bldao.BuscaPorId(id));
-        }
+
+
 
     }
 }

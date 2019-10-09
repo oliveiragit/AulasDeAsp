@@ -66,7 +66,22 @@ namespace BLContainer_TP02.Controllers
         {
             ContainerDAO dao = new ContainerDAO();
             var container = dao.BuscaPorId(id);
-            return View(container);
+            IList < Container > lista = new List<Container>();
+            lista.Add(container);
+            return View(lista);
+        }
+
+        [Route("BL/{Numero}", Name = ("BLeContainer"))]
+        public ActionResult BLContainer(int id)
+        {
+            BLDAO bldao = new BLDAO();
+            ContainerDAO container = new ContainerDAO();
+            ViewBag.Containers = container.BuscaPorBL(id);
+            IList<BL> lista = new List<BL>();
+            var bl = bldao.BuscaPorId(id);
+            lista.Add(bl);
+
+            return View(lista);
         }
     }
 }

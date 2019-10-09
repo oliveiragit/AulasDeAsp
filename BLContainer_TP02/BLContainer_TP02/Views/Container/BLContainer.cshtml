@@ -14,8 +14,9 @@
 <body>
     <h2>Lista de BLs</h2>
     <a class="btn btn-primary" href="@Url.Action("Form", "BL")">
-        Novo
-    </a>        <br />
+        Novissimo
+    </a>      
+    <br/>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -26,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var bl in ViewBag.BLs)
+            @foreach (var bl in Model)
             {
                 <tr>
                     <td>@bl.Numero</td>
@@ -35,20 +36,17 @@
                     <td>
                         <p>
                             <a class="btn btn-primary" data-toggle="collapse" href="#Containers" role="button" aria-expanded="false" aria-controls="containers">
-                                Link with href
+                               Containers
                             </a>
                         </p>
-
-
-                        @foreach (var container in ViewBag.Container)
-                        {
-                           
                              <div class="collapse" id="Containers">
                                 <div class="card card-body">
-                                @Html.RouteLink($"{container.Numero}", "ContainerDetalhes", new { id = container.Id, numero = container.Numero }, new { @class = "container" })
+                                   @foreach (var container in ViewBag.Containers)
+                                   {
+                                      <p> @Html.RouteLink($" {container.Numero}", "ContainerDetalhes", new { id = container.Id, numero = container.Numero }, new { @class = "container" })</p>
+                                   }
+                                </div>
                              </div>
-                        </div>
-                        }
                         </td>
                     </tr>
             }

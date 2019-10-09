@@ -32,6 +32,14 @@ namespace  BLContainer_TP02.DAO
                     .FirstOrDefault();
             }
         }
+        public IList<Container> BuscaPorBL (int Id)
+        {
+            using (var contexto = new TerminalContext())
+            {
+                return contexto.Containers.Include("BL")
+                .Where(c => c.BLId == Id).ToList() ;
+            }
+        }
         public void Atualiza(Container container)
         {
             using (var contexto = new TerminalContext())
