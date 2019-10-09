@@ -35,6 +35,12 @@ namespace BLBL_TP02.Controllers
             dao.Adiciona(BL);
             return RedirectToAction("Index");
         }
-       
+        [Route("BL/{Numero}", Name = ("BLContainer"))]
+        public ActionResult BLContainer(int id)
+        {
+            BLDAO bldao = new BLDAO();
+            return View(bldao.BuscaPorId(id));
+        }
+
     }
 }

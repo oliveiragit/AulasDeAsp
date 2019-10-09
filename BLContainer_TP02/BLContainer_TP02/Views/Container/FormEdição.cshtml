@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Form";
+    ViewBag.Title = "FormEdição";
 }
 
 <h2>Novo container</h2>
@@ -14,11 +14,13 @@
 <body>
     @if (ViewBag.BLs.Count != 0)
     {
-        <form action="/Container/Adiciona" method="post">
+        <form action="/Container/Editar" method="post">
 
+            <label for="id"> Id: </label>
+            <input id="id" name="Container.Id" value="@ViewBag.Container.Id" readonly />
 
             <label for="numero"> Número: </label>
-            <input id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" />
+            <input id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" readonly/>
 
             <label for="tipo"> Tipo: </label>
             <input id="tipo" name="Container.Tipo" value="@ViewBag.Container.Tipo" />

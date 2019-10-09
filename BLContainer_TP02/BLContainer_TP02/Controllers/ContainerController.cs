@@ -12,7 +12,6 @@ namespace BLContainer_TP02.Controllers
     public class ContainerController : Controller
     {
         // GET: Container
-        [Route("Lista", Name ="Container")]
         public ActionResult Index()
         {
             ContainerDAO dao = new ContainerDAO();
@@ -29,26 +28,46 @@ namespace BLContainer_TP02.Controllers
         }
 
         [HttpPost]
-        public ActionResult Adiciona(Container Container)
+        public ActionResult Adiciona(Container container)
         {
             ContainerDAO dao = new ContainerDAO();
-            dao.Adiciona(Container);
+            dao.Adiciona(container);
             return RedirectToAction("Index");
         }
-        [Route("bls/{id}")]
-        public ActionResult BLContainer(int id)
-        {
-            BLDAO bldao = new BLDAO();
+       
 
-            return View(bldao.BuscaPorId(id));
-        }
-
-        [Route("Apagar/{id}", Name ="ApagarContainer")]
+        [Route("Apagar/{numero}", Name ="ApagarContainer")]
         public ActionResult Apagar(int id)
         {
             ContainerDAO dao = new ContainerDAO();
             dao.Apagar(id);
             return RedirectToAction("Index");
         }
+        [Route("Editar/{numero}", Name = "EditarContainer")]
+        public ActionResult FormEdição(int id)
+        {
+            ContainerDAO dao = new ContainerDAO();
+            Container ctn = dao.BuscaPorId(id);
+            BLDAO bl = new BLDAO();
+            ViewBag.BLs = bl.Lista();
+            ViewBag.Container = ctn;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Editar(Container container)
+        {
+            ContainerDAO dao = new ContainerDAO();
+            String n = container.Numero;
+            dao.Atualiza(container);
+            return RedirectToAction("Index");
+        }
+        [Route("Container/Detalhes/Numero", Name = "ContainerDetalhes")]
+        public ActionResult Detalhes (int id)
+        {
+            ContainerDAO dao = new ContainerDAO();
+            var container = dao.BuscaPorId(id);
+            return View(container);
+        }
     }
 }
+

@@ -1,0 +1,70 @@
+﻿@model IList<BLContainer_TP02.Models.BL>
+@{
+    ViewBag.Title = "BLContainer";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lista de BLs</title>
+</head>
+<body>
+    <h2>Lista de BLs</h2>
+    <a class="btn btn-primary" href="@Url.Action("Form", "BL")">
+        Novo
+    </a>        <br />
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>NÚMERO</th>
+                <th>CONSIGNEE</th>
+                <th>NAVIO</th>
+                <th>CONTAINER<th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bl in ViewBag.BLs)
+            {
+                <tr>
+                    <td>@bl.Numero</td>
+                    <td>@bl.Consignee</td>
+                    <td>@bl.Navio</td>
+                    <td>
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#Containers" role="button" aria-expanded="false" aria-controls="containers">
+                                Link with href
+                            </a>
+                        </p>
+
+
+                        @foreach (var container in ViewBag.Container)
+                        {
+                           
+                             <div class="collapse" id="Containers">
+                                <div class="card card-body">
+                                @Html.RouteLink($"{container.Numero}", "ContainerDetalhes", new { id = container.Id, numero = container.Numero }, new { @class = "container" })
+                             </div>
+                        </div>
+                        }
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+
+   
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

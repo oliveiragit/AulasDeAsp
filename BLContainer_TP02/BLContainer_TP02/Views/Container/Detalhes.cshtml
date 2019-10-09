@@ -1,7 +1,7 @@
 ﻿@model IList<BLContainer_TP02.Models.Container>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Detalhes";
 }
 
 <!DOCTYPE html>
@@ -11,12 +11,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Lista de Containers</title>
 </head>
-<body> 
+<body>
     <h2>Lista de Container</h2>
     <a class="btn btn-primary" href="@Url.Action("Form", "Container")">
         Novo
     </a>
-    <br/>
+    <br />
     <table class="table table-striped">
         <thead>
             <tr>
@@ -29,18 +29,18 @@
             </tr>
         </thead>
         <tbody>
-             @foreach (var container in Model)
-             {
+            @foreach (var container in Model)
+            {
                 <tr>
                     <td>@Html.RouteLink(" ", "EditarContainer", new { id = container.Id, numero = container.Numero }, new { @class = "btn-default glyphicon glyphicon-edit" })</td>
                     <td>@container.Numero</td>
                     <td>@container.Tipo</td>
                     <td>@container.Tamanho</td>
                     <td>@Html.RouteLink(container.Bl.Numero, "BLContainer", new { id = container.Bl.Id })</td>
-                    <td>@Html.RouteLink(" ", "ApagarContainer", new{id = container.Id, numero = container.Numero}, new { @class = "btn-danger glyphicon glyphicon-remove" })</td>
+                    <td> @Html.RouteLink(" ", "ApagarContainer", new { id = container.Id, numero = container.Numero }, new { @class = "btn-danger glyphicon glyphicon-remove" })</td>
                 </tr>
-                } 
-       </tbody>
+            }
+        </tbody>
     </table>
 </body>
 </html>
