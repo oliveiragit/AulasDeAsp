@@ -14,20 +14,20 @@
 <body>
     @if (ViewBag.BLs.Count != 0)
     {
-        <form action="/Container/Adiciona" method="post">
+        <form action="/Container/Adiciona"  method="post">
 
 
             <label for="numero"> Número: </label>
-            <input id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" />
+            <input class="form-control" id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" />
 
             <label for="tipo"> Tipo: </label>
-            <input id="tipo" name="Container.Tipo" value="@ViewBag.Container.Tipo" />
+            <input class="form-control" id="tipo" name="Container.Tipo" value="@ViewBag.Container.Tipo" />
 
             <label for="tamanho"> Tamanho: </label>
-            <input id="tamanho" name="Container.Tamanho" value="@ViewBag.Container.Tamanho" />
+            <input class="form-control" id="tamanho" name="Container.Tamanho" value="@ViewBag.Container.Tamanho" />
 
             <label for="BL"> BL: </label>
-            <select id="BL" name="Container.BLId">
+            <select class="form-control" id="BL" name="Container.BLId">
                 @foreach (var bl in ViewBag.BLs)
                 {
                     <option value="@bl.Id" selected="(@bl.Id.Equals(ViewBag.Container.BLId)">@bl.Numero</option>

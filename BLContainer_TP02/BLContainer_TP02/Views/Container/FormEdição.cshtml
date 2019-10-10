@@ -17,19 +17,19 @@
         <form action="/Container/Editar" method="post">
 
             <label for="id"> Id: </label>
-            <input id="id" name="Container.Id" value="@ViewBag.Container.Id" readonly />
+            <input class="form-control" id="id" name="Container.Id" value="@ViewBag.Container.Id" readonly />
 
             <label for="numero"> Número: </label>
-            <input id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" readonly/>
+            <input class="form-control" id="numero" name="Container.Numero" value="@ViewBag.Container.Numero" readonly />
 
             <label for="tipo"> Tipo: </label>
-            <input id="tipo" name="Container.Tipo" value="@ViewBag.Container.Tipo" />
+            <input class="form-control" id="tipo" name="Container.Tipo" value="@ViewBag.Container.Tipo" />
 
             <label for="tamanho"> Tamanho: </label>
-            <input id="tamanho" name="Container.Tamanho" value="@ViewBag.Container.Tamanho" />
+            <input class="form-control" id="tamanho" name="Container.Tamanho" value="@ViewBag.Container.Tamanho" />
 
             <label for="BL"> BL: </label>
-            <select id="BL" name="Container.BLId">
+            <select class="form-control" id="BL" name="Container.BLId">
                 @foreach (var bl in ViewBag.BLs)
                 {
                     <option value="@bl.Id" selected="(@bl.Id.Equals(ViewBag.Container.BLId)">@bl.Numero</option>

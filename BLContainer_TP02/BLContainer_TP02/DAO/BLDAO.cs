@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BLBL_TP02.DAO
+namespace BLContainer_TP02.DAO
 {
     public class BLDAO
     {
@@ -13,8 +13,14 @@ namespace BLBL_TP02.DAO
         {
             using (var context = new TerminalContext())
             {
-                context.BLs.Add(bl);
-                context.SaveChanges();
+                if (BuscaPorId(bl.Id) == null)
+                {
+                    context.BLs.Add(bl);
+                    context.SaveChanges();
+                }
+                else
+                    Atualiza(bl);
+
             }
         }
         public IList<BL> Lista()
@@ -29,7 +35,7 @@ namespace BLBL_TP02.DAO
             using (var contexto = new TerminalContext())
             {
                 return contexto.BLs
-                    .Where(bl => bl.Id == id)
+                    .Where(c => c.Id == id)
                     .FirstOrDefault();
             }
         }
@@ -45,7 +51,10 @@ namespace BLBL_TP02.DAO
         {
             using (var contexto = new TerminalContext())
             {
-                var bl = contexto.BLs.Single(b => b.Id == id);
+                var bl = contexto.BLs.Single(c => c.Id == id);
+                var containers = contexto.Containers
+                .Where(c => c.BLId == id);
+                contexto.Containers.RemoveRange(containers);
                 contexto.BLs.Remove(bl);
                 contexto.SaveChanges();
             }

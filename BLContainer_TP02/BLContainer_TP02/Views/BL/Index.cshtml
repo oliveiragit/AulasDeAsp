@@ -13,7 +13,7 @@
 <body>
     <h2>Lista de BLs</h2>
     <a class="btn btn-primary" href="@Url.Action("Form", "BL")">
-        Novissimo
+        Cadastrar
     </a>        
     <br />
         <table class="table table-striped">
@@ -29,15 +29,13 @@
             <tbody>
                 @foreach (var bl in ViewBag.BLs)
                 {
-                    <tr>
-                        <td>
-                            <a class="btn-default"><span class="glyphicon glyphicon-edit"></span></a>
-                        </td>
-                        <td>@bl.Numero</td>
-                        <td>@bl.Consignee</td>
-                        <td>@bl.Navio</td>
-                        <td><a class="btn-danger"><span class="glyphicon glyphicon-remove"></span></a></td>
-                    </tr>
+                <tr>
+                    <td>@Html.RouteLink(" ", "EditarBL", new { id = bl.Id, numero = bl.Numero }, new { @class = "btn-default glyphicon glyphicon-edit" })</td>
+                    <td>@bl.Numero</td>
+                    <td>@bl.Consignee</td>
+                    <td>@bl.Navio</td>
+                    <td>@Html.RouteLink(" ", "ApagarBL", new { id = bl.Id, numero = bl.Numero }, new { @class = "btn-danger glyphicon glyphicon-remove" })</td>
+                </tr>
                 }
             </tbody>
         </table>

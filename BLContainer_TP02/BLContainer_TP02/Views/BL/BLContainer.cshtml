@@ -14,10 +14,10 @@
 <body>
     <h2>Lista de BLs</h2>
     <a class="btn btn-primary" href="@Url.Action("Form", "BL")">
-        Novissimo
+        Cadastrar
     </a>      
     <br/>
-    <table class="table table-striped">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>NÚMERO</th>
@@ -35,8 +35,9 @@
                     <td>@bl.Navio</td>
                     <td>
                         <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#Containers" role="button" aria-expanded="false" aria-controls="containers">
-                               Containers
+                            <a class="btn-group" data-toggle="collapse" href="#Containers" role="button" aria-expanded="false" aria-controls="containers">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+
                             </a>
                         </p>
                              <div class="collapse" id="Containers">

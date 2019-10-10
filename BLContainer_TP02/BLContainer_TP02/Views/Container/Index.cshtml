@@ -14,7 +14,7 @@
 <body> 
     <h2>Lista de Container</h2>
     <a class="btn btn-primary" href="@Url.Action("Form", "Container")">
-        Novo
+        Cadastrar
     </a>
     <br/>
     <table class="table table-striped">
@@ -36,7 +36,7 @@
                     <td>@container.Numero</td>
                     <td>@container.Tipo</td>
                     <td>@container.Tamanho</td>
-                    <td>@Html.RouteLink($"{container.Bl.Numero}", "BLeContainer", new { id = container.Bl.Id, numero = container.Bl.Numero }, new { @class = "BL" })</td>
+                    <td>@Html.RouteLink($"{container.Bl.Numero}", "BLContainer", new { id = container.Bl.Id, numero = container.Bl.Numero }, new { @class = "BL" })</td>
                     <td>@Html.RouteLink(" ", "ApagarContainer", new{id = container.Id, numero = container.Numero}, new { @class = "btn-danger glyphicon glyphicon-remove" })</td>
                 </tr>
                 } 

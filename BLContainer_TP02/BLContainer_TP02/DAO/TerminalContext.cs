@@ -11,5 +11,6 @@ namespace BLContainer_TP02.DAO
     {
         public DbSet<Container> Containers { get; set; }
         public DbSet<BL> BLs { get; set; }
+        public object Bls { get; internal set; }
     }
 }

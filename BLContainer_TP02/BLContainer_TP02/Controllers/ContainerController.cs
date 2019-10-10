@@ -1,5 +1,4 @@
-﻿using BLBL_TP02.DAO;
-using BLContainer_TP02.DAO;
+﻿using BLContainer_TP02.DAO;
 using BLContainer_TP02.Models;
 using System;
 using System.Collections.Generic;
@@ -36,14 +35,14 @@ namespace BLContainer_TP02.Controllers
         }
        
 
-        [Route("Apagar/{numero}", Name ="ApagarContainer")]
+        [Route("Containers/Apagar/{numero}", Name ="ApagarContainer")]
         public ActionResult Apagar(int id)
         {
             ContainerDAO dao = new ContainerDAO();
             dao.Apagar(id);
             return RedirectToAction("Index");
         }
-        [Route("Editar/{numero}", Name = "EditarContainer")]
+        [Route("Containers/Editar/{numero}", Name = "EditarContainer")]
         public ActionResult FormEdição(int id)
         {
             ContainerDAO dao = new ContainerDAO();
@@ -61,7 +60,7 @@ namespace BLContainer_TP02.Controllers
             dao.Atualiza(container);
             return RedirectToAction("Index");
         }
-        [Route("Container/Detalhes/Numero", Name = "ContainerDetalhes")]
+        [Route("Containers/Detalhes/{numero}", Name = "ContainerDetalhes")]
         public ActionResult Detalhes (int id)
         {
             ContainerDAO dao = new ContainerDAO();
@@ -71,18 +70,7 @@ namespace BLContainer_TP02.Controllers
             return View(lista);
         }
 
-        [Route("BL/{Numero}", Name = ("BLeContainer"))]
-        public ActionResult BLContainer(int id)
-        {
-            BLDAO bldao = new BLDAO();
-            ContainerDAO container = new ContainerDAO();
-            ViewBag.Containers = container.BuscaPorBL(id);
-            IList<BL> lista = new List<BL>();
-            var bl = bldao.BuscaPorId(id);
-            lista.Add(bl);
-
-            return View(lista);
-        }
+       
     }
 }
 
