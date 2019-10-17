@@ -17,6 +17,7 @@ namespace WideWorldImporters.API
 #pragma warning disable CS1591
     public class Startup
     {
+   //BRANTINHA MONSTRA
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
